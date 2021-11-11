@@ -100,6 +100,14 @@ export class Inbox extends Component {
     this.setState({ messages, deleted });
   }
 
+  componentDidMount() {
+    fetch(`https://raw.githubusercontent.com/ThemesGuide/react-bootstrap-4-inbox/master/src/data/messages.json`)
+      .then(res => res.json())
+      .then(res => {
+        this.setState({ messages: res });
+      });
+  };
+
   render() {
     return (
       <div>
